@@ -30,6 +30,11 @@
 \RequirePackage{textcomp}
 \RequirePackage{enumitem}
 \RequirePackage{textpos}
+\RequirePackage[version=4]{mhchem}
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
+\RequirePackage{indentfirst}
+\RequirePackage{lipsum}
 
 % =======================================================
 % Headers & Footers (part 1)
@@ -64,31 +69,10 @@
 % =======================================================
 % NORMAL FONT
 \renewcommand{\normalsize}{\usefont{OT1}{phv}{m}{n} \fontsize{12}{15} \selectfont}
-% =======================================================
 
+% Purple text
+\newcommand{\purple}[1]{{\textcolor{Purple}{#1}}}
 % =======================================================
-% IN FOCUS FONTS
-% Main title
-\newcommand{\infocustitle}{\usefont{OT1}{phv}{b}{n} \fontsize{30}{34} \selectfont}
-% Small title
-\newcommand{\infocustitlesmall}{\usefont{OT1}{phv}{b}{n} \fontsize{22}{24} \selectfont}
-% Authors
-\newcommand{\infocusauthors}{\usefont{OT1}{phv}{b}{n} \fontsize{14}{17} \selectfont}
-% Subtitles
-\newcommand{\infocussubtitles}{\usefont{OT1}{phv}{b}{n} \fontsize{15}{16} \selectfont}
-% =======================================================
-
-
-% =======================================================
-% ABSTRACTS FONTS
-% Paper title
-\newcommand{\papertitle}{\usefont{OT1}{phv}{b}{n} \fontsize{18}{19} \selectfont}
-% Small title
-\newcommand{\paperauthor}{\usefont{OT1}{phv}{b}{n} \fontsize{14}{15} \selectfont}
-% Authors
-\newcommand{\paperinstitution}{\usefont{OT1}{phv}{m}{n} \fontsize{10}{15} \selectfont}
-% =======================================================
-
 
 % =======================================================
 % LIKE US ON FACEBOOK SYMBOL AND LINK
@@ -129,4 +113,124 @@
 \renewcommand{\footrulewidth}{0.0pt}
 
 % by Isabel Aleman
+
+% Various commands that are repeated
+
+\newcommand{\editorsignature}{
+  \usefont {OT1} {phv}{b}{n} 
+  \Large
+  \selectfont
+  \vspace{0.3cm}
+
+  \noindent \hfill The Editorial Team
+}
+
+\newcommand{\headerspacing}{\vspace*{1.6cm}}
+
+\newcommand{\headergraphic}[1]{
+  {\ThisULCornerWallPaper{1.00}{#1}}
+  \headerspacing
+}
+
+% plop the AstroPAH email whereever
+\newcommand{\astropahemail}[1]{\href{mailto:astropah@strw.leidenuniv.nl}{#1}}
+
+% =======================================================
+% Section declarations
+% =======================================================
+
+% =======================================================
+% IN FOCUS section declarations
+
+% This defines the overraching InFocus environment
+\newenvironment{infocus}{
+  \headergraphic{images/Header_InFocus.png}
+  \section*{~}
+  \addcontentsline{toc}{section}{In Focus}
+}{}
+
+% This defines an environment for interviews
+\newenvironment{interview}[1]{
+    \begin{center}
+        {\infocustitlesmall \noindent \purple{Interview with}}
+
+        {\infocustitle \noindent \purple{#1}}
+
+        \vspace{0.8cm}
+    \end{center}
+    % revert back to normal stuffs
+    \normalsize
+}{}
+
+% This defines an interview question
+\newcommand{\question}[1]{
+  {\vspace{1cm} \noindent\color{Purple}\usefont{OT1}{phv}{b}{n}
+  \fontsize{15}{16}\selectfont #1}\\
+  }
+
+% =======================================================
+% IN FOCUS FONTS
+% Main title
+\newcommand{\infocustitle}{\usefont{OT1}{phv}{b}{n} \fontsize{30}{34} \selectfont}
+% Small title
+\newcommand{\infocustitlesmall}{\usefont{OT1}{phv}{b}{n} \fontsize{22}{24} \selectfont}
+% Authors
+\newcommand{\infocusauthors}{\usefont{OT1}{phv}{b}{n} \fontsize{14}{17} \selectfont}
+% Subtitles
+\newcommand{\infocussubtitles}{\usefont{OT1}{phv}{b}{n} \fontsize{15}{16} \selectfont}
+% =======================================================
+
+% =======================================================
+% EDITORIAL section declarations
+
+% This defines an environment for editorials
+\newenvironment{editorial}[1]{
+    % Do not edit the following commands
+    \headergraphic{images/Header_Editorial.png}
+    \section*{~}
+    \addcontentsline{toc}{section}{Editorial}
+    % revert back to normal stuffs
+    \normalsize
+
+    {\Large{\textbf{Dear colleagues,}}} \\\\
+}{
+  \editorsignature
+}
+
+% =======================================================
+% ABSTRACTS section declarations
+
+% this makes formatting affiliations and authors a lot easier
+\RequirePackage{authblk}
+
+% This defines an environment for the abstract part of the newsletter;
+% keep in mind this is different from an individual abstract!
+\newenvironment{abstracts}{
+    % Do not edit the following commands
+    \headergraphic{images/Header_Abstracts.png}
+    \section*{~}
+    \addcontentsline{toc}{section}{Recent Papers }
+    % revert back to normal stuffs
+    \normalsize
+}
+
+% =======================================================
+% ABSTRACTS FONTS
+\newcommand{\Titlefont}{\usefont{OT1}{phv}{b}{n} \fontsize{18}{19} \selectfont}
+\renewcommand\Authfont{\usefont{OT1}{phv}{b}{n} \fontsize{14}{15} \selectfont}
+\renewcommand\Affilfont{\usefont{OT1}{phv}{m}{n} \fontsize{10}{15} \itshape \selectfont}
+% =======================================================
+\renewenvironment{abstract}{
+  \begin{center}
+    {{\Titlefont \@title}\\ \@author \\ \@affiliation \\}
+  \end{center}
+}{
+  \makeatletter
+  \renewcommand{\AB@affillist}{}
+  \renewcommand{\AB@authlist}{}
+  \setcounter{authors}{0}
+  \setcounter{affil}{0}
+  \makeatother
+  \vspace{1cm}
+}
 

@@ -1,0 +1,167 @@
+\documentclass{astropah}
+
+\graphicspath{{images}}
+
+% Information that need to be updated in every AstroPAH volume
+
+\newcommand{\monthyear}{November 2020}
+\newcommand{\issuenum}{73}
+\newcommand{\nextissue}{17 December 2020}
+\newcommand{\nextdeadline}{4 December 2020}
+
+% Picture of the month information
+\newcommand{\coverfile}{cover73.png}
+\newcommand{\covertitle}{Good luck with your }
+\newcommand{\covertitleB}{Cycle 1 JWST Proposals!}
+%Comment from Ella: I don't know how to change the size of the font for it to fit... or maybe we need to make it two lines? 
+% --> The line below. :) Change the number, which is the font size. The following lines, define the (x,y) position.
+% --> I just include covertitleB for a 2nd line
+\newcommand{\covertitlefontsize}{36}
+\newcommand{\covertitlehposition}{0.0cm}
+\newcommand{\covertitlevposition}{16.0cm}
+\newcommand{\covertitleshadowcolor}{gray}
+\newcommand{\potmcaption}{Artistic impression of the James Webb Space Telescope. JWST will observe in mid infrared wavelengths, where PAH bands can be detected. The Cycle 1 Proposal Deadline is 24 November 2020. Good luck with your proposals!}
+\newcommand{\potmcredits}{\href{https://www.flickr.com/photos/nasawebbtelescope/16678787010/in/album-72157624413830771/}{Northrop Grumman.}}
+
+\begin{document}
+
+
+
+% =================================================
+%  Cover
+% =================================================
+
+% The following file does not need editing
+% \input{astropah_cover.tex}
+
+% =================================================
+%  EDITORIAL
+% =================================================
+
+% Edit the editorial text direct in the file below
+\input{astropah_editorial.tex}
+
+% =================================================
+%   Box with the Next Issue Info
+% =================================================
+
+% Do not edit the commends below
+\vfill
+
+\usefont {OT1} {phv}{b}{n} 
+\fontsize{15}{15}
+\selectfont
+
+\begin{shaded}
+
+  \vspace{0.1cm}
+
+  \centerline{\textcolor{white}{Next issue: \textbf{\nextissue}.}}
+
+  \vspace{0.2cm}
+
+  \centerline{\textcolor{white}{Submission deadline: \textbf{\nextdeadline}.}}
+
+  \vspace{0.1cm}
+
+\end{shaded}
+
+\newpage 
+% =================================================
+
+
+
+% =================================================
+%  Info Page (Editorial Board, TOC, etc..)
+% =================================================
+
+% The following file does not need editing
+% \input{astropah_infopage.tex}
+
+
+% =================================================
+%  In Focus
+% =================================================
+
+% Edit the In Focus text direct in the file below
+\begin{infocus}
+    \input{astropah_infocus}
+\end{infocus}
+
+
+% =================================================
+%  Abstracts
+% =================================================
+
+% Edit the abstracts text direct in the file below
+\newpage
+\begin{abstracts}
+
+    \input{astropah_abstracts.tex}
+
+\end{abstracts}
+
+
+
+% =================================================
+%  Meetings
+% =================================================
+
+% Edit the meeting ads text direct in the file below
+%\input{astropah_meetings.tex}
+
+
+% =================================================
+%  Announcements
+% =================================================
+
+% Edit the announcements text direct in the file below
+% \input{astropah_announcements.tex}
+
+
+% =================================================
+%  Box at the end
+% =================================================
+
+% Do not edit the commands bellow
+\textcolor{white}{.}
+
+\vfill
+
+\begin{shaded}
+
+%==================
+\usefont {OT1} {phv}{m}{n} 
+\fontsize{15}{16}
+\selectfont
+%==================
+
+\centerline{\textbf{\textcolor{white}{AstroPAH Newsletter}}}
+
+\begin{multicols}{2}
+
+%==================
+\normalsize
+%==================
+
+\noindent \href{http://astropah-news.strw.leidenuniv.nl}{\textcolor{white}{http://astropah-news.strw.leidenuniv.nl}}
+
+\noindent \href{mailto:astropah@strw.leidenuniv.nl}{\textcolor{white}{astropah@strw.leidenuniv.nl}}
+
+\columnbreak
+
+\flushright \textcolor{white}{Next issue: \nextissue}
+
+\textcolor{white}{Submission deadline: \nextdeadline}
+
+\end{multicols}
+
+
+\end{shaded}
+
+
+% =================================================
+\end{document}       % THE END
+% =================================================
+
+% Template by Isabel Aleman (2020)
